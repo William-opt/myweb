@@ -1,0 +1,149 @@
+/*初始化*/
+* {
+
+	padding: 0;
+	margin: 0;
+}
+
+/*身体*/
+body {
+	height: 100vh;
+	/*弹性布局*/
+	display: flex;
+	/*居中对齐*/
+	justify-content: center;
+	/*中点对齐（所有图片位于同一线上）*/
+	align-items: center;
+	/*背景颜色*/
+	background: linear-gradient(120deg, #dcb9ee 0%, rgba(25, 225, 225, 0.2) 100%);
+}
+
+
+
+.card {
+	position: relative;
+	height: 450px;
+	width: 300px;
+	margin: 20px;
+	/*圆角化*/
+	border-radius: 20px;
+	/*overflow（防溢出）：hidden（隐藏）*/
+	overflow: hidden;
+	/*背景颜色*/
+	background-color: #5d3270;
+	/*弹性布局*/
+	display: flex;
+	/*元素纵向排列*/
+	flex-direction: column;
+	/*中点对齐（所有图片位于同一线上）*/
+	align-items: center;
+	/*文字颜色*/
+	color: #ffffff;
+	/*阴影（辉光）*/
+	box-shadow: 0 0 30px rgba(100, 0, 0, 0.5);
+	/*防止图片被挤压*/
+	flex-shrink: 0;
+}
+
+.card .photo img {
+	width: 100%;
+	height: 100%;
+	/*对图片进行剪切，保留原始比例 知识点网站：https://www.runoob.com/try/try.php?filename=trycss3_object-fit*/
+	object-fit: cover;
+}
+
+.card .photo {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 0%;
+	/*overflow防止溢出*/
+	overflow: hidden;
+	/*动画过渡*/
+	transition: 0.5s;
+}
+
+/*给图片底部加一个黑色渐变*/
+.card .photo::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to bottom, transparent 50%, #222);
+}
+
+/*鼠标移到卡片时 图片缩放效果*/
+.card:hover .photo {
+	top: 30px;
+	width: 120px;
+	height: 120px;
+	/*圆角化*/
+	border-radius: 50%;
+	box-shadow: 0 0 30px rgba(red, 0, 0, 0.5);
+}
+
+/*名字*/
+.card h1 {
+	position: absolute;
+	top: 380px;
+	/*动画过渡*/
+	transition: 1s;
+	/*名字的颜色*/
+	color: #ffd5eb;
+}
+
+/*鼠标移到图片后，名字拔高*/
+.card:hover h1 {
+	position: absolute;
+	top: 170px;
+	transition: 0.6s;
+}
+
+.card h2 {
+	/*上外边距*/
+	margin-top: 220px;
+	width: 80%;
+	/*边框*/
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	/*字体大小*/
+	font-size: 14px;
+	/*文字水平对齐方式：居中*/
+	text-align: center;
+	/*下外边距*/
+	margin-bottom: 20px;
+	/*下内边距*/
+	padding-bottom: 20px;
+}
+
+.card p {
+	width: 90%;
+	font-size: 16px;
+	/*文字首行缩进*/
+	text-indent: 32px;
+	/*下外边框*/
+	margin-bottom: 15px;
+	/*行高*/
+	line-height: 30px;
+}
+
+.card a {
+	/*字体大小*/
+	font-size: 10px;
+	/*字体颜色*/
+	color: #FFFFFF;
+	/*文字装饰：无*/
+	text-decoration: none;
+	/*虚线边框*/
+	border: 1px dashed #fffdfd;
+	padding: 8px 32px;
+	/*了解更多的圆角边框*/
+	border-radius: 8px;
+
+}
+
+.card a:hover {
+	color: #FFFFFF;
+	background-color: rgba(25, 225, 225, 0.2);
+
+}
